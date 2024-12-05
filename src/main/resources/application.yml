@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://junction.proxy.rlwy.net:46610/railway
+    username: postgres
+    password: zEoiQsgAvtzKVGgFuwqfsHhXUIFwvHin
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8080
