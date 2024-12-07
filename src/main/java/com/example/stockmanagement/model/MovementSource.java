@@ -1,5 +1,5 @@
 package com.example.stockmanagement.model;
 
 public enum MovementSource {
-    ADJUSTMENT, MAINTENANCE
+    ADJUSTMENT, MAINTENANCE,PURCHASE
 }

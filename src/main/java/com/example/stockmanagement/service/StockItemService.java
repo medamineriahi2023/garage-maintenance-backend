@@ -25,6 +25,9 @@ public class StockItemService {
         return stockItemRepository.findAll(pageable);
     }
 
+    public Page<StockItem> searchStockItemsByName(String name, Pageable pageable) {
+        return stockItemRepository.findByNameContainingIgnoreCase(name, pageable);
+    }
     @Transactional
     public StockItem addStockItem(StockItem item) {
         StockItem savedItem = stockItemRepository.save(item);
@@ -46,10 +49,16 @@ public class StockItemService {
         checkStockLevel(savedItem);
         return savedItem;
     }
-
+    public Page<StockItem> searchEquipment(String search, Pageable pageable) {
+        return stockItemRepository.findByNameContainingIgnoreCase(search, pageable);
+    }
     private void checkStockLevel(StockItem item) {
         if (item.getCurrentQuantity() <= item.getMinQuantity()) {
             notificationService.addNotification(item);
         }
+    }
+
+    public StockItem getStockItem(Long id){
+        return stockItemRepository.findById(id).get();
     }
 }
