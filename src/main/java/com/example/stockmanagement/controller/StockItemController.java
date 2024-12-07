@@ -34,7 +34,6 @@ public class StockItemController {
     public Page<StockItem> searchEquipment(
             @RequestParam(required = false) String search,
             Pageable pageable) {
-        System.out.println("im here");
         if (search != null && !search.isEmpty()) {
             return stockItemService.searchEquipment(search, pageable);
         }
