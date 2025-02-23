@@ -14,7 +14,6 @@ public interface MaintenanceRepository extends JpaRepository<Maintenance, Long> 
     List<Maintenance> findByDateBetween(LocalDateTime startDate, LocalDateTime endDate);
     @Query("SELECT m FROM Maintenance m WHERE " +
             "LOWER(m.clientName) LIKE LOWER(CONCAT('%', :search, '%')) OR " +
-            "m.id = :search OR " +
             "m.carRegistrationNumber LIKE CONCAT('%', :search, '%')")
     Page<Maintenance> findByClientNameOrClientIdOrRegistrationNumber(
             @Param("search") String search, Pageable pageable);}
